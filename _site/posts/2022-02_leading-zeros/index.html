@@ -451,8 +451,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: milliseconds
     expr      min       lq     mean   median       uq      max neval
-   pad_c 18.62879 19.03758 20.93428 19.99054 21.37879 27.38350    25
- stringr 54.62579 55.25046 56.35671 55.55533 56.20358 71.95204    25</code></pre>
+   pad_c 27.80324 28.26081 30.56471 28.97134 30.65747 37.34945    25
+ stringr 70.66952 71.34314 72.50030 71.74829 72.26938 85.25796    25</code></pre>
 </div>
 </div>
 <p>Looks like <code>formatC</code> is at least twice as fast as using <code>str_pad</code>, so depending on the size of the dataset or how many times you are replicating padding zeros, it may be worth using <code>formatC</code>, even if you do have to look up again which format corresponds to integers!</p>

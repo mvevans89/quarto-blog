@@ -12,9 +12,7 @@ website:
         href: https://twitter.com/mv_evans
 format:
   html:
-    theme: 
-      dark: cyborg
-      light: flatly
+    theme: minty
     css: styles.css
 
 

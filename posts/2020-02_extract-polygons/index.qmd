@@ -32,7 +32,7 @@ The `USAboundaries` package has spatial data for the US. It can be installed fro
 #| warning: false
 #| message: false
 
-install.packages("USAboundariesData", repos = "http://packages.ropensci.org")
+# install.packages("USAboundariesData", repos = "http://packages.ropensci.org")
 library(USAboundaries)
 library(USAboundariesData)
 library(sf)

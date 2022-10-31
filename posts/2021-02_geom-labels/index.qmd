@@ -5,6 +5,8 @@ author: "Michelle Evans"
 date: "2021-01-27"
 draft: false
 image: label.png
+execute:
+  warning: false
 ---
 
 When adding labels or text to `ggplot` you may have run into a problem where it is either taking much longer than you expect to plot, crashing Rstudio while plotting, or creating blurry or jagged text/labels. This all stems from the same problem, which is that, if the labels are repeated **n** times in your dataset, they are being plotted **n** times. As it writes those text over and over again on top of itself, it 1) will take a long time and 2) will create blurry text. Below are several options to fix this problem.

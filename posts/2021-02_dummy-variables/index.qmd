@@ -5,6 +5,8 @@ author: "Michelle Evans"
 date: "2021-02-27"
 draft: false
 image: dummy-book.jpg
+execute:
+  warning: false
 ---
 
 
@@ -135,6 +137,7 @@ time.test <- microbenchmark(
 
 ```{r}
 #| echo: false
+#| warning: false
 time.test
 autoplot(time.test)
 ```
