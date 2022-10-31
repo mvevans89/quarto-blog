@@ -4,6 +4,7 @@ description: "How to apply aggregate functions that 'roll' across data"
 author: "Michelle Evans"
 date: "2/11/2020"
 draft: false
+image: roll_alignments.png
 ---
 
 Rolling, or window, functions allow you to apply a function over a window of size `n` of a vector, such as a column in a dataframe. This is especially useful when you want to know the accumulation of some variable over time, like precipitation over the past month or the count of some occurrence in a surrounding number of days.
