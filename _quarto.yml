@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Dithering Data"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/mvevans89
+      - icon: twitter
+        href: https://twitter.com/mv_evans
+format:
+  html:
+    theme: 
+      dark: cyborg
+      light: flatly
+    css: styles.css
+
+
+

@@ -1,0 +1,47 @@
+{
+  "posts/post-with-code/index.qmd": {
+    "index.html": "d14013a0"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "dc70635d"
+  },
+  "index.qmd": {
+    "index.html": "aa759da7"
+  },
+  "about.qmd": {
+    "about.html": "5533e786"
+  },
+  "posts/ggplot-pipe/index.qmd": {
+    "index.html": "8c1877dd"
+  },
+  "posts/2018-06_ggplot-pipe/index.qmd": {
+    "index.html": "0eeead65"
+  },
+  "posts/2019-12_package-wrapped/index.qmd": {
+    "index.html": "2730d72a"
+  },
+  "posts/2018-01_gganimate/index.qmd": {
+    "index.html": "1a40e71a"
+  },
+  "posts/2020-02_rolling-functions/index.qmd": {
+    "index.html": "39ad5dd6"
+  },
+  "posts/2021-02_geom-labels/index.qmd": {
+    "index.html": "4350fb07"
+  },
+  "posts/2021-02_dummy-variables/index.qmd": {
+    "index.html": "407a80e8"
+  },
+  "posts/2021-02_apply-row/index.qmd": {
+    "index.html": "c3b9232e"
+  },
+  "posts/2022-02_leading-zeros/index.qmd": {
+    "index.html": "b52712b9"
+  },
+  "posts/2020-02_extract-polygons/index.qmd": {
+    "index.html": "947240d8"
+  },
+  "posts/2020-02_rolling-functions/index.knit.md": {
+    "index.knit.html": "105a5149"
+  }
+}

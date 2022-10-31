@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.253">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Michelle Evans">
+<meta name="dcterms.date" content="2019-12-20">
+<meta name="description" content="A new package to let you know what R packages you use the most">
+
+<title>Dithering Data - The Packages Wrapped Package</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Dithering Data</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mvevans89"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/mv_evans"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">The Packages Wrapped Package</h1>
+                  <div>
+        <div class="description">
+          A new package to let you know what R packages you use the most
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Michelle Evans </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 20, 2019</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>As the the decade winds to a close, the internet abounds with various Best of the 2010’s or Best of 2019, from the best TV shows and movies to the best <a href="https://people.com/food/people-food-awards-2019-best-new-snacks/">grocery store snacks</a>. You can even get your own personalized ‘Best Of’ list of your most listened to songs and albums on Spotify. But let’s be honest, the majority of my time is not spent watching Award-winning TV, but trying to convince my computer to run that last bit of R code needed for my analysis. Of course, this often involves Spotify and snacks, but that’s another matter. And so, the need for an <code>R</code> Best of 2019 Wrapped was born!</p>
+<p><img src="https://bitbucket.org/mv_evans/packagewrapped/raw/06dcfd3e4ee69a46f637e0ebf8b85c68657a591d/examples/r-wrapped.png" class="img-fluid"></p>
+<p>I whipped up a quick package that parses through all the <code>R</code> and <code>Rmd</code> code on your local machine in specified directories and creates a Spotify-themed image of your most used functions and packages. The powerhouse of the package is a function from the <a href="https://cran.r-project.org/web/packages/NCmisc/index.html"><code>NCmisc</code> package</a> that lists all the functions used in an R script, and identifies what package they are from. I also drew heavily from this very helpful <a href="https://stackoverflow.com/questions/28513444/how-to-tell-what-packages-you-have-used-in-r/28513913">StackOverflow post</a>.</p>
+<section id="package-overview" class="level1">
+<h1>Package Overview</h1>
+<p>The package can be installed from its <a href="https://bitbucket.org/mv_evans/packagewrapped/src/master/">bitbucket repo</a> with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_bitbucket</span>(<span class="st">"mv_evans/packageWrapped"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The workflow for creating the final image only has a couple steps:</p>
+<ol type="1">
+<li>extract R code from Rmd documents using <code>purl</code> (<code>Rmd_to_R</code> function)</li>
+<li>generate a list of all functions and packages in the selected path (<code>check_packs</code> function)</li>
+<li>create and save the image (<code>plot_wrapped</code> function)</li>
+</ol>
+<p>For the TL:DR version, you can follow the steps in the package <a href="https://bitbucket.org/mv_evans/packagewrapped/src/master/">README</a> to create your own image. If you’re interested in some of the nitty-gritty, check out the package internals below.</p>
+</section>
+<section id="package-functions" class="level1">
+<h1>Package Functions</h1>
+<section id="purling-your-code" class="level2">
+<h2 class="anchored" data-anchor-id="purling-your-code"><code>purl</code>ing your code</h2>
+<p>A limitation of the <code>list.functions.in.file</code> function is that it only works on <code>.R</code> files, not <code>.Rmd</code>. I do most of my work in <code>.Rmd</code> because I like being able to knit to more easily viewable html files, and because the text highlighting makes me feel like Angelina Jolie in <em>Hackers</em>. The <code>purl</code> function from the <code>knitr</code> package extracts all of the R code from these <code>Rmd</code> documents to use later in the workflow. In <code>packageWrapped</code>, this is the <code>Rmd_to_R</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Rmd_to_R</span>(path, temporary.path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You provide two locations to this function:</p>
+<ul>
+<li><code>path</code>: the top level directory that you want the function to look for <code>Rmd</code> files in. For me, this is my Dropbox folder where I have all work related things saved.</li>
+<li><code>temporary.path</code>: a directory where a folder named <code>package-wrap-purl</code> will be created and all of the R code documents saved in</li>
+</ul>
+<p>The function then creates a list of all the <code>Rmd</code> files contained in the <code>path</code> directory by searching recursively. It then uses the <code>file.mtime</code> function to get the time the file was last modified for each file, and then filters all of the Rmd files to those only modififed in 2019 (for the purpose of the Wrapped 2019).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find all Rmd files</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">list.files</span>(path, <span class="at">recursive =</span> T, <span class="at">pattern =</span> <span class="st">"Rmd$"</span>, <span class="at">full.names =</span> T))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#get date info and filter to year of interest</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>rmd.files <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">files =</span> files,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#extract date modified</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_mod=</span> <span class="fu">file.mtime</span>(files)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">date_mod =</span> <span class="fu">as.Date</span>(date_mod)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(date_mod)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#limit to 2019</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create individual ID codes for each file to save as an R script</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">output =</span> <span class="fu">paste0</span>(temporary.path, <span class="st">"/package-wrap-purl/"</span>, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                                  date_mod, <span class="st">"_"</span>, dplyr<span class="sc">::</span><span class="fu">row_number</span>(), <span class="st">".R"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">input =</span> <span class="fu">as.character</span>(files))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once the dataframe of files to be <code>purl</code>ed is created with an individual ID for each file to be saved to, the function <code>purl</code> function is mapped to the dataframe using the <code>walk2</code> function. This is similar to the <code>map2</code> function from <code>purrr</code>, but is used when what you are interested in is only the “side-effect” of the function, in this case that a new R script is created containing the code in the <code>package-wrapped-purl</code> directory. Because this is doing quite a large operation on many different individuals’ computers, I also wrap the function in <code>possibly</code>. This means the function will be applied to each file, but if it encounters an error, it will simply spit out the supplied error message and move on to the next file. It’s similar to using <code>tryCatch</code> but with a syntax that I find much more intuitive.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>purl_func <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">possibly</span>(knitr<span class="sc">::</span>purl, <span class="at">otherwise =</span> <span class="fu">print</span>(<span class="st">"error converting Rmd to R. moving to next file"</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">walk2</span>(rmd.files<span class="sc">$</span>input, rmd.files<span class="sc">$</span>output, purl_func)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="generating-function-and-package-data" class="level2">
+<h2 class="anchored" data-anchor-id="generating-function-and-package-data">Generating function and package data</h2>
+<p>Now that all the R code is contained in <code>.R</code> files that are easily readable by <code>list.functions.in.file</code>, we simply apply that function over all the files and summarize the resulting lists of functions and packages into something more interesting. This is all done in the <code>check_packs</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>packs.data <span class="ot">&lt;-</span> <span class="fu">check_packs</span>(path, purled_R_dir, <span class="at">ignore.Rmd =</span> F, <span class="at">load.packages =</span> T, <span class="at">include.default =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The first two arguments should be the same as those provided to the <code>Rmd_to_R</code> function, with <code>purled_R_dir</code> now pointing directly to the <code>package-wrapped-purl</code> directory. The second two arguments are more like checks to make sure you are truly searching all of your files and packages.</p>
+<ul>
+<li><code>ignore.Rmd</code>: the default for this is <code>FALSE</code>, in which case the function will also search for any <code>.Rmd</code> files within your PATH, and return how many files there are. This is a reminder to purl those files to <code>R</code> scripts via the <code>Rmd_to_R</code> function. If you’ve already done this, then you can set this argument to <code>TRUE</code>.</li>
+<li><code>load.packages</code>: is a boolean as to whether all of your installed packages should be loaded or not. The <code>list.functions.in.file</code> function can only indentify a function’s package if that package is loaded, so you ideally want to load all of your packages. The function will do this automatically, if set to <code>TRUE</code>, but you can turn this behavior off if you prefer to choose which packages to load. This is particularly helpful if certain packages take a long time to load or if loading some packages is resulting in errors.</li>
+</ul>
+<p>The final argument, <code>include.default</code>, is whether or not you want to include the seven default packages that come loaded with R. These are <code>base</code>, <code>utils</code>, <code>datasets</code>,<code>grDevices</code>, <code>graphics</code>, <code>stats</code>, and <code>methods</code>. I found that most workflows relied heavily on these packages, especially functions like <code>c</code>, <code>library</code>, and <code>read.csv</code>, and including them made an overall kind of boring list of packages and functions. Feel free to include if you are curious which base functions you use the most.</p>
+<p>The majority of this function is simply filtering to get out any odd packages or strange text strings returned by the <code>list.functions.in.file</code> function. It again uses <code>list.files</code> to find any <code>.R</code> files, and filters them to those modified in 2019.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="do">## get all R files in your directory</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  files <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">list.files</span>(path, <span class="at">recursive =</span> T, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.R$"</span>, <span class="at">full.names =</span> T),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">list.files</span>(purled_R_dir, <span class="at">recursive =</span> T, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.R$"</span>, <span class="at">full.names =</span> T))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#drop any duplicates</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  files <span class="ot">&lt;-</span> <span class="fu">unique</span>(files)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#limit to the year (2019)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  file.times <span class="ot">&lt;-</span> <span class="fu">file.mtime</span>(files)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  files <span class="ot">&lt;-</span> files[lubridate<span class="sc">::</span><span class="fu">year</span>(file.times)<span class="sc">==</span><span class="dv">2019</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The package also drops any files found in <code>packrat</code> directories, since these are supporting files for other packages and presumably not files you have written yourself. This is achieved by searching for character strings in the files using <code>grep</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> files[<span class="sc">!</span>(<span class="fu">grepl</span>(<span class="st">"packrat"</span>, files))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>list.functions.in.file</code> function is then applied to each file using the <code>map</code> function, with the original function wrapped in <code>possibly</code> again. Depending on the number of files and length of each, this can take a while. I’ve been finding it’s about 10 files/minutes. Using one of the base <code>apply</code> functions would likely speed this up, but I’ve opted to stick with <code>purrr</code> because of the ease of wrapping the function in <code>possibly</code> and my own reluctance to spend time to finally understand how <code>tryCatch</code> works.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>list.functions.w.error <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">possibly</span>(NCmis<span class="sc">::</span>list.functions.in.file, <span class="at">otherwise =</span> <span class="cn">NA</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>funs <span class="ot">&lt;-</span> <span class="fu">unlist</span>(purrr<span class="sc">::</span><span class="fu">map</span>(files, list.functions.w.error))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The rest of the function is then automating cleaning these function and package names as much as possible. This means dropping any functions that were not associated with a package or were global environment functions (i.e.&nbsp;user created). This is primarily done via functions from the <code>stringr</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop empty ones from the NAs created by possibly</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>packs <span class="ot">&lt;-</span> packs[packs<span class="sc">!=</span><span class="st">""</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># "character" functions such as reactive objects in Shiny (also functions without packages)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>packs <span class="ot">&lt;-</span> packs[<span class="sc">!</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(packs, <span class="st">"^character"</span>))]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># user defined functions in the global environment</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>packs <span class="ot">&lt;-</span> packs[<span class="sc">!</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(packs, <span class="st">"^.GlobalEnv"</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The function also goes through and seperates out functions that are found in multiple packages. Unless the notation <code>package::function</code> was used, it is difficult to know which package the function was from, so each package is only counted once from this list. This probably underestimates the counts of certain packages, but including them all very much overestimated graphing packages, such as plotly. Plus it’s just a spotify spoof, so we aren’t going for precision here!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># functions that are in multiple packages' namespaces</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>multipackages<span class="ot">&lt;-</span>packs[stringr<span class="sc">::</span><span class="fu">str_detect</span>(packs, <span class="st">", "</span>)]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get just the  package names from multipackages</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>mpackages<span class="ot">&lt;-</span>multipackages <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_extract_all</span>(., <span class="st">"[a-zA-Z0-9]+"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unlist</span>()</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># these were just leftover characters from the list</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>mpackages <span class="ot">&lt;-</span> mpackages[<span class="sc">!</span>mpackages <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"package"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>)]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># functions that are from single packages</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>upackages <span class="ot">&lt;-</span> packs[<span class="fu">str_detect</span>(packs, <span class="st">"package:"</span>) <span class="sc">&amp;</span> <span class="sc">!</span>packs <span class="sc">%in%</span> multipackages] <span class="sc">%&gt;%</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_replace</span>(., <span class="st">"package:"</span>, <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_replace</span>(., <span class="st">"[0-9]+$"</span>, <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ggplot gets messed up when you do this so fix it again</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_replace</span>(., <span class="st">"ggplot"</span>, <span class="st">"ggplot2"</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">#all packages used</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>all.packages <span class="ot">&lt;-</span> <span class="fu">c</span>(mpackages, upackages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, some summary statistics are created from this information: the frequency of each package, the frequency of each function, and the total number of files included in the search. This makes use of the base function <code>table</code>, which outputs freuency tables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get functions and number of times used</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>funs.freq <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(funs)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(Freq))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="creating-the-image" class="level2">
+<h2 class="anchored" data-anchor-id="creating-the-image">Creating the image</h2>
+<p>Once you have the summary statistics of your package and function use, the next step is image manipulation to make the final Spotify-style image.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_wrapped</span>(my_packs, image.path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This function takes the results of the last step, created via the <code>check_packs</code> function, and creates a PNG image that will be saved at the provided <code>image.path</code>. I looked into using <code>beamer</code>, which creates slideshow presentations from <code>Rmd</code> files, but ultimately, it seemed easier to get the level of customization I needed by just using base <code>R</code>’s plotting capabilities.</p>
+<p>First, is to set up the formatting, specifically the color scheme and font choice. You can use any font in a plot, as long as it is installed locally, by simply defining it as a QuartzFont. You have to provide four fonts, one each for plain, bold, italic, and bolditalic, but since we are just using one font, I provided the same font for each version.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>bg.col <span class="ot">&lt;-</span> <span class="st">"#C1F843"</span> <span class="co">#lime green</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>text.col <span class="ot">&lt;-</span> <span class="st">"#FF35B7"</span> <span class="co">#pink</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quartzFonts</span>(<span class="at">spotify =</span> <span class="fu">rep</span>(<span class="st">"Asimov Regular"</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next is loading the images that we will be adding manually. These are the R logo and the appropriate hexes for the top packages. The pink and green R logo comes with the <code>packageWrapped</code> package, so it is loaded from there</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>logo <span class="ot">&lt;-</span> png<span class="sc">::</span><span class="fu">readPNG</span>(<span class="fu">system.file</span>(<span class="st">"images/r-logo2.png"</span>, <span class="at">package =</span> <span class="st">"packageWrapped"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hexes are chosen depending on the top packages. A folder of various hex stickers comes with the package, and the appropriate hex is chosen based on a user’s top packages via an internal <code>get_hex</code> function. The current collection is quite small, so if you find that your final image is missing a hex sticker for one of your top packages, please use a PR to add it to the package repo.</p>
+<p>Finally the image is put together by layering different calls to <code>rasterImage</code> and <code>text</code> to add each individual object to the plotting device. This is made somewhat easily modifiable by manually setting the positions for each column and row of objects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set alignments</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>left.x <span class="ot">=</span> <span class="fl">0.05</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>right.x <span class="ot">=</span> <span class="fl">0.55</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>top.row.y <span class="ot">=</span> <span class="fl">0.50</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>bottom.row.y <span class="ot">=</span> <span class="fl">0.15</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(image.path, <span class="at">height =</span> <span class="dv">800</span>, <span class="at">width =</span> <span class="dv">800</span>, <span class="at">res =</span> <span class="dv">100</span>, <span class="at">family =</span> <span class="st">'spotify'</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">bg =</span> bg.col, <span class="at">family =</span> <span class="st">"spotify"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#create an empty plot space</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ann =</span> F, <span class="at">bty =</span> <span class="st">'n'</span>, <span class="at">type =</span> <span class="st">'n'</span>, <span class="at">xaxt =</span> <span class="st">'n'</span>, <span class="at">yaxt =</span> <span class="st">'n'</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#fun header</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rasterImage</span>(logo,left.x,<span class="fl">0.92</span>,left.x<span class="fl">+0.06</span>,<span class="fl">0.98</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#section titles</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> left.x<span class="fl">+0.06</span>, <span class="at">y =</span> <span class="fl">0.94</span>, <span class="st">"R Programming Language"</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">col =</span> text.col, <span class="at">adj =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="fl">0.70</span>, <span class="at">y =</span> <span class="fl">0.94</span>, <span class="st">"2019 Wrapped"</span>,</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">col =</span> text.col, <span class="at">adj =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">#top packages</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span>left.x, <span class="at">y =</span> top.row.y, <span class="st">"TOP PACKAGES"</span>,</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> text.col, <span class="at">adj =</span> <span class="dv">0</span>)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span>left.x, <span class="at">y =</span> top.row.y<span class="fl">-0.05</span>, top.packs.text,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">adj =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="co">#top functions</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> right.x , <span class="at">y =</span> top.row.y, <span class="st">"TOP FUNCTIONS"</span>,</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> text.col, <span class="at">adj =</span> <span class="dv">0</span>)</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span>right.x, <span class="at">y =</span> top.row.y<span class="fl">-0.05</span>, top.funs.text,</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">adj =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="co">#files written</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> left.x, <span class="at">y =</span> bottom.row.y , <span class="st">"FILES WRITTEN"</span>,</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> text.col, <span class="at">adj =</span> <span class="dv">0</span>)</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> left.x, <span class="at">y =</span> bottom.row.y <span class="sc">-</span> <span class="fl">0.05</span>, <span class="fu">paste</span>(my_packs<span class="sc">$</span>n.files),</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">adj =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a><span class="co">#top genre</span></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> right.x , <span class="at">y =</span> bottom.row.y , <span class="fu">paste</span>(<span class="st">"TOP GENRE"</span>),</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> text.col, <span class="at">adj =</span> <span class="dv">0</span>)</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> right.x , <span class="at">y =</span> bottom.row.y<span class="fl">-0.05</span> , top.genre,</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">1.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">adj =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Adding the individual hex stickers is a little more complicated, because we want them to be nicely aligned no matter how many stickers there are, so a long <code>ifelse</code> statement is used to get the alignment just right. And of course adding a dog meme if there were no matching hex stickers for the user’s top packages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#add hexes</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">exists</span>(<span class="st">"hex.images"</span>)){</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(hex.images)<span class="sc">==</span><span class="dv">3</span>){</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rasterImage</span>(hex.images[[<span class="dv">1</span>]],left.x<span class="fl">+0.03</span>,top.row.y<span class="fl">+0.05</span>,left.x<span class="fl">+0.28</span>,top.row.y<span class="fl">+0.35</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rasterImage</span>(hex.images[[<span class="dv">2</span>]],left.x <span class="sc">+</span> <span class="fl">0.33</span>,top.row.y<span class="fl">+0.05</span>,left.x<span class="fl">+0.58</span>,top.row.y<span class="fl">+0.35</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rasterImage</span>(hex.images[[<span class="dv">3</span>]],left.x <span class="sc">+</span> <span class="fl">0.63</span>,top.row.y<span class="fl">+0.05</span>,left.x<span class="fl">+0.88</span>,top.row.y<span class="fl">+0.35</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">length</span>(hex.images) <span class="sc">==</span><span class="dv">2</span>){</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rasterImage</span>(hex.images[[<span class="dv">1</span>]],left.x<span class="fl">+0.23</span>,top.row.y<span class="fl">+0.05</span>,left.x<span class="fl">+0.48</span>,top.row.y<span class="fl">+0.35</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rasterImage</span>(hex.images[[<span class="dv">2</span>]],left.x <span class="sc">+</span> <span class="fl">0.53</span>,top.row.y<span class="fl">+0.05</span>,left.x<span class="fl">+0.78</span>,top.row.y<span class="fl">+0.35</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">length</span>(hex.images<span class="sc">==</span><span class="dv">1</span>)){</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rasterImage</span>(hex.images[[<span class="dv">1</span>]],left.x<span class="fl">+0.4</span>,top.row.y<span class="fl">+0.05</span>,left.x<span class="fl">+0.65</span>,top.row.y<span class="fl">+0.35</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    dog.meme <span class="ot">&lt;-</span> jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(<span class="fu">system.file</span>(<span class="st">"images/dog_meme.jpg"</span>, <span class="at">package =</span> <span class="st">"packageWrapped"</span>))</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rasterImage</span>(dog.meme, left.x<span class="fl">+0.2</span>,top.row.y<span class="fl">+0.05</span>,left.x<span class="fl">+0.65</span>,top.row.y<span class="fl">+0.35</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The entire image is then saved to the defined PNG path. This had to be set beforehand because the alignment of everything was very sensitive to the dimensions of the image and allowing it to plot to the default R device and then exporting resulted in some very misaligned text.</p>
+</section>
+<section id="linking-to-bitbucketgitlabetc." class="level2">
+<h2 class="anchored" data-anchor-id="linking-to-bitbucketgitlabetc.">Linking to bitbucket/gitlab/etc.</h2>
+<p>A downside to this is that it only searches code that you have locally on your computer. A next step would be to link this to an API on one of these hosting services and search through all your public and private repositories.</p>
+</section>
+<section id="updating-the-package" class="level2">
+<h2 class="anchored" data-anchor-id="updating-the-package">Updating the package</h2>
+<p>The package can and should be expanded to meet the needs of new users. In particular, missing hex stickers and categorization of packages to calculate the final ‘Top Genre’ are needed. If you find any of your packages are missing, please fill a PR to the <a href="https://bitbucket.org/mv_evans/packagewrapped/src/master/">repository</a> or file an issue, which you should be able to do anonymously without a bitbucket account.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
