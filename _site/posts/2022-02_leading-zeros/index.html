@@ -129,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,8 +146,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://mvevans89.github.io">
+ <span class="menu-text">Academic Site</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/mvevans89"><i class="bi bi-github" role="img">
@@ -166,48 +170,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Adding Leading Zeros to Strings</h1>
-                  <div>
-        <div class="description">
-          How to add zeros (or other characters) to the front of a string vector
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Michelle Evans </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">February 27, 2022</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-add-leading-zeros" id="toc-why-add-leading-zeros" class="nav-link active" data-scroll-target="#why-add-leading-zeros">Why add leading zeros?</a>
+  <ul class="collapse">
+  <li><a href="#sorting-data" id="toc-sorting-data" class="nav-link" data-scroll-target="#sorting-data">Sorting Data</a></li>
+  <li><a href="#extracting-metadata" id="toc-extracting-metadata" class="nav-link" data-scroll-target="#extracting-metadata">Extracting Metadata</a></li>
+  </ul></li>
+  <li><a href="#adding-leading-zeros" id="toc-adding-leading-zeros" class="nav-link" data-scroll-target="#adding-leading-zeros">Adding Leading Zeros</a>
+  <ul class="collapse">
+  <li><a href="#formatc-in-base-r" id="toc-formatc-in-base-r" class="nav-link" data-scroll-target="#formatc-in-base-r"><code>formatC</code> in base R</a></li>
+  <li><a href="#using-the-str_pad-function-from-the-stringr-package" id="toc-using-the-str_pad-function-from-the-stringr-package" class="nav-link" data-scroll-target="#using-the-str_pad-function-from-the-stringr-package">Using the <code>str_pad</code> function from the <code>stringr</code> package</a></li>
+  <li><a href="#comparing-performance" id="toc-comparing-performance" class="nav-link" data-scroll-target="#comparing-performance">Comparing Performance</a></li>
+  </ul></li>
+  <li><a href="#tldr" id="toc-tldr" class="nav-link" data-scroll-target="#tldr">TL;DR</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Adding Leading Zeros to Strings</h1>
+</div>
+
+<div>
+  <div class="description">
+    How to add zeros (or other characters) to the front of a string vector
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michelle Evans </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 27, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
 
 <p>We all have that one StackOverflow post that we visit multiple times a week because we just can’t remember exactly how to do that one thing. For me, it is <a href="https://stackoverflow.com/questions/5812493/how-to-add-leading-zeros">this SO post</a> on adding leading zeros to character strings. This is something I do often when automatically naming files or creating a key/identifier column for a dataset.</p>
 <section id="why-add-leading-zeros" class="level1">

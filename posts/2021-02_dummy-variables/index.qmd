@@ -4,7 +4,7 @@ description: "How to create dummy variables within a dataframe"
 author: "Michelle Evans"
 date: "2021-02-27"
 draft: false
-image: dummy-book.jpg
+image: dummy-book-120.png
 execute:
   warning: false
 ---

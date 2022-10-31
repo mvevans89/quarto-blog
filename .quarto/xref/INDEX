@@ -43,5 +43,8 @@
   },
   "posts/2020-02_rolling-functions/index.knit.md": {
     "index.knit.html": "105a5149"
+  },
+  "blog.qmd": {
+    "blog.html": "49d362ce"
   }
 }

@@ -3,9 +3,13 @@ project:
 
 website:
   title: "Dithering Data"
+  site-url: https://ditheringdata.netlify.app
   navbar:
     right:
-      - about.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Academic Site"
+        href: https://mvevans89.github.io
       - icon: github
         href: https://github.com/mvevans89
       - icon: twitter

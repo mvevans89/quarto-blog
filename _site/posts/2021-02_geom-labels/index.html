@@ -129,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,8 +146,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://mvevans89.github.io">
+ <span class="menu-text">Academic Site</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/mvevans89"><i class="bi bi-github" role="img">
@@ -166,48 +170,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Accidentally Repeating Labels in ggplot2</h1>
-                  <div>
-        <div class="description">
-          Why labels plot over each other and how to avoid it
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Michelle Evans </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">January 27, 2021</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#example-of-the-repeating-problem" id="toc-example-of-the-repeating-problem" class="nav-link active" data-scroll-target="#example-of-the-repeating-problem">Example of the repeating problem</a></li>
+  <li><a href="#use-the-annotate-geom" id="toc-use-the-annotate-geom" class="nav-link" data-scroll-target="#use-the-annotate-geom">Use the <code>annotate</code> geom</a></li>
+  <li><a href="#reset-the-data-source" id="toc-reset-the-data-source" class="nav-link" data-scroll-target="#reset-the-data-source">Reset the data source</a></li>
+  <li><a href="#calculate-the-summary-statistic-outside" id="toc-calculate-the-summary-statistic-outside" class="nav-link" data-scroll-target="#calculate-the-summary-statistic-outside">Calculate the summary statistic outside</a></li>
+  <li><a href="#what-about-geom_label" id="toc-what-about-geom_label" class="nav-link" data-scroll-target="#what-about-geom_label">What about <code>geom_label</code>?</a></li>
+  <li><a href="#tldr" id="toc-tldr" class="nav-link" data-scroll-target="#tldr">TL;DR</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Accidentally Repeating Labels in ggplot2</h1>
+</div>
+
+<div>
+  <div class="description">
+    Why labels plot over each other and how to avoid it
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michelle Evans </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 27, 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
 
 <p>When adding labels or text to <code>ggplot</code> you may have run into a problem where it is either taking much longer than you expect to plot, crashing Rstudio while plotting, or creating blurry or jagged text/labels. This all stems from the same problem, which is that, if the labels are repeated <strong>n</strong> times in your dataset, they are being plotted <strong>n</strong> times. As it writes those text over and over again on top of itself, it 1) will take a long time and 2) will create blurry text. Below are several options to fix this problem.</p>
 <p>But first, the problem…</p>

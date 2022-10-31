@@ -4,7 +4,7 @@ description: "Using pipes with dplyr and ggplot2"
 author: "Michelle Evans"
 date: "6/15/2018"
 draft: false
-image: "pipe-image.png"
+image: "pipe-image-120.png"
 ---
 
 ```{r, echo=F, message=F, warning=F}

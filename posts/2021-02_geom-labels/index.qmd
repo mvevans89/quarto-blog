@@ -4,7 +4,7 @@ description: "Why labels plot over each other and how to avoid it"
 author: "Michelle Evans"
 date: "2021-01-27"
 draft: false
-image: label.png
+image: label-120.png
 execute:
   warning: false
 ---

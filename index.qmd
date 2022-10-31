@@ -1,14 +1,21 @@
 ---
 title: "Dithering Data"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
+image: michelle-avatar.png
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/mv_evans
+    - icon: github
+      text: Github
+      href: https://github.com/mvevans89
+    - icon: email
+      text: Email me!
+      href: mailto:mv.evans.phd@gmail.com
+
 ---
 
+Hello! My name is Michelle Evans, and I'm a post-doctoral researcher at the Institut de Recherche pour le Développement in Montpellier, France, currently working on questions of disease ecology in the context of health system strengthening. I'm really interested in how ecologists and public health stakeholders can work together to create tools and systems that are useful to folks on the ground. For more information about my research, head over to my [personal website](https://mvevans89.github.io/).
 
+I also like to play around with data, especially if it’s spatial. I started this blog as a way for myself to better my own coding practices, and share some things I’ve learned with others.

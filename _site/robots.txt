@@ -1,0 +1,1 @@
+Sitemap: https://ditheringdata.netlify.app/sitemap.xml
