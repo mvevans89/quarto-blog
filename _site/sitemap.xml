@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ditheringdata.netlify.app/blog.html</loc>
-    <lastmod>2022-10-31T21:07:22.185Z</lastmod>
+    <lastmod>2022-11-01T10:56:21.205Z</lastmod>
   </url>
   <url>
     <loc>https://ditheringdata.netlify.app/index.html</loc>
-    <lastmod>2022-10-31T21:07:22.771Z</lastmod>
+    <lastmod>2022-11-01T11:05:20.806Z</lastmod>
   </url>
   <url>
     <loc>https://ditheringdata.netlify.app/posts/2022-02_leading-zeros/index.html</loc>
@@ -39,5 +39,9 @@
   <url>
     <loc>https://ditheringdata.netlify.app/posts/2019-12_package-wrapped/index.html</loc>
     <lastmod>2022-10-31T21:07:55.567Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ditheringdata.netlify.app/posts/2022-30daymapping/day1-points/index.html</loc>
+    <lastmod>2022-11-01T11:05:21.554Z</lastmod>
   </url>
 </urlset>
