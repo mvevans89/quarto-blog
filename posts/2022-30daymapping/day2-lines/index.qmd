@@ -1,0 +1,93 @@
+---
+title: "AM-TRON"
+description: "Day 2 of the #30DayMapChallenge - Lines"
+author: "Michelle Evans"
+date: "2022-11-02"
+draft: false
+image: day2-amtron.png
+execute:
+  warning: false
+  message: false
+---
+
+
+The goal of today is to make a Tron-style map of the Amtrak lines in the US.
+
+I downloaded the shapefile of Amtrak routes from the [US Department of Transportation Open Data Dashboard](https://data-usdot.opendata.arcgis.com/datasets/baa5a6c4d4ae4034850e99aaca38cfbb/explore). But there were some errors with non-overlapping vertices so I ended up just georeferencing it myself in QGIS before starting.
+
+```{r}
+#| echo: false
+library(ggtext) #html in figure captions
+library(ggplot2)
+library(sf)
+library(showtext) #for tron font
+
+
+library(dplyr)
+```
+
+
+Most of the work today was just messing about with code to get the aesthetics I wanted. First we load the data: 
+
+```{r}
+#| echo: false
+#georeferenced
+amtrak <- st_read("amtrak-manual.gpkg") %>%
+  st_transform(crs = 5070)
+
+#outline of us
+usa.poly <- st_as_sf(maps::map("usa", fill=TRUE, plot =FALSE)) %>%
+  filter(ID == "main") %>%
+  st_transform(crs = 5070)
+```
+
+And then map it:
+
+```{r}
+#| include: false
+
+library(showtext)
+font_add(family = "tron", regular = "/Users/mvevans/Library/Fonts/TRON.TTF")
+font_add(family = "fa-brand", regular = "/Users/mvevans/Library/Fonts/fa-brands-400.ttf")
+showtext_auto()
+```
+
+```{r}
+#| fig-height: 6
+#| fig-width: 8
+caption.pos <- c(-1.2e6, 4.56e5)
+
+amtron <- ggplot() +
+  geom_sf(data = usa.poly, fill = "gray30", color = "gray80", size = 0, alpha = 0.8) +
+  geom_sf(data = amtrak, color = "#6EECED", size = 2.5, alpha = 0.15) +
+  geom_sf(data = amtrak, color = "#6EECED", size = 3, alpha = 0.1) +
+  geom_sf(data = amtrak, color = "#6EECED", size = 2, alpha = 0.2) +
+  geom_sf(data = amtrak, color = "#6EECED", size = 1.5, alpha = 0.2) +
+  geom_sf(data = amtrak, color = "#6EECED", size = 1, alpha = 0.5) +
+  geom_sf(data = amtrak, color = "#6EECED", size = 0.75, alpha = 0.2) +
+  annotate("text", x = caption.pos[1], y = caption.pos[2], label = "AMTRON", color = "#d3b3f2", size = 13, 
+           family = "tron") +
+  annotate("text", x = caption.pos[1], y = caption.pos[2], label = "AMTRON", color = "#6EECED", size = 14, 
+           family = "tron", alpha = 0.3) +
+    annotate("text", x = caption.pos[1], y = caption.pos[2], label = "AMTRON", color = "white", size = 16, 
+           family = "tron", alpha = 0.1) +
+  coord_sf(clip = "off") +
+  labs(caption =  "**Source:** US DOT, maps package <br>
+       **Created by:**M. Evans") +
+  theme_void() +
+  theme(plot.background = element_rect(fill = "black"),
+        panel.background = element_rect(fill = "black"),
+        plot.caption = element_markdown(color = "gray90", size = 10),
+        plot.caption.position = "plot")
+amtron
+```
+
+
+```{r}
+#| include: false
+#| eval: false
+png("day2-amtron.png", res = 200, width = 1700, height = 1190)
+amtron
+dev.off()
+```
+
