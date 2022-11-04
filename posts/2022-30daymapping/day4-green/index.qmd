@@ -1,6 +1,6 @@
 ---
 title: "Exploring Rainforests with Rayshader"
-description: "Day 3 of the #30DayMapChallenge - Something Green"
+description: "Day 4 of the #30DayMapChallenge - Something Green"
 author: "Michelle Evans"
 date: "2022-11-04"
 draft: false
