@@ -2,14 +2,14 @@ project:
   type: website
 
 website:
-  title: "Dithering Data"
+  title: "Michelle Evans"
   site-url: https://ditheringdata.netlify.app
   navbar:
     right:
       - text: "Blog"
         href: blog.qmd
-      - text: "Academic Site"
-        href: https://mvevans89.github.io
+      - text: "Academic Pubs"
+        href: pubs.qmd
       - icon: github
         href: https://github.com/mvevans89
       - icon: twitter

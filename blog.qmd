@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Dithering Data: A Blog"
 listing:
   contents: posts
   sort: "date desc"
@@ -11,7 +11,7 @@ listing:
   image-align: left
   image-height: "3cm"
 page-layout: full
-title-block-banner: false
+title-block-banner: true
 ---
 
 

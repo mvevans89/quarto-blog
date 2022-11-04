@@ -1,0 +1,89 @@
+---
+title: "Academic Publications"
+page-layout: full
+title-block-banner: true
+---
+
+PDFs that are not open access (indicated by the <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span> icon) are available to download for individual use by clicking on the [PDF]() hyperlink following the title. All others can be downloaded from the journal website via the link provided.
+
+```{r}
+#| eval: false
+#| include: false
+
+# to copy for new publications
+
+#if needing to replace
+highlight-color:#78C2AD
+
+{{< fa circle-chevron-right >}} <b>TITLE</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>YOU</span>, OTHER AUTHORS. 20XX. <i>JOURNAL</i>. <a href="doi url">doi:the-doi</a>. <br>
+  
+```
+
+
+### 2022
+
+{{< fa circle-chevron-right >}} <b>A data-driven horizon scan of bacterial pathogens at the wildlife-livestock interface</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, J Drake. 2022. <i>EcoHealth</i>. <a href="https://link.springer.com/article/10.1007/s10393-022-01599-3">doi:10.1007/s10393-022-01599-3</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Prioritizing COVID-19 vaccination efforts and dose allocation within Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Rasambainarivo F, T Ramiadantsoa, A Raherinandrasana, S Randrianarisoa, BL Rice, <span style='color:#78C2AD'>MV Evans</span>, B Roche, FM Randriatsarafara, A Wesolowski, JC Metcalf. Prioritizing COVID-19 vaccination efforts and dose allocation within Madagascar. <i>BMC Public Health.</i> <a href="https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-022-13150-8">doi:10.1186/s12889-022-13150-8</a>. 
+
+{{< fa circle-chevron-right >}}  <b>Socio-ecological dynamics in urban systems: An integrative approach to mosquito-borne disease in Bengaluru, India</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, S Bhatnagar, JM Drake, CC Murdock, S Mukherjee. 2022. <i>People & Nature</i>. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/pan3.10311">doi:10.1002/pan3.10311</a>. 
+
+{{< fa circle-chevron-right >}} <b>Both consumptive and non-consumptive effects of predators impact mosquito populations and have implications for disease transmission</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Russell MC\*, CM Herzog\*, Z Gajewski, C Ramsay, F El Moustaid, <span style='color:#78C2AD'>MV Evans</span>, T Desai, NL Gottdenker, SL Hermann, AG Power, AG McCall. 2022. <i>eLife</i>. <a href="https://doi.org/10.7554/eLife.71503">doi:10.7554/eLife.71503</a>. \*Contributed equally. 
+
+### 2021
+
+{{< fa circle-chevron-right >}} <b>Assessing temperature-dependent competition between two invasive mosquito species</b> <span style='color:#78C2AD'></span> [PDF](assets/pdfs/EvansEAP2021.pdf)<br/>
+<span style='color:#78C2AD'>Evans MV</span>, JM Drake, L Jones, CC Murdock. 2021. <i>Ecological Applications</i>. <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/eap.2334">doi:10.1002/eap.2334.</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Integrating health systems and science to respond to COVID-19 in a model district of rural Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Rakotonanahary RJL, H Andriambolamanana, B Razafinjato, EM Raza-Fanomezanjanahary, V Ramanandraitsiory, et al. Matthew H. Bonds. 2021. <i>Frontiers in Public Health</i>. <a href="https://www.frontiersin.org/articles/10.3389/fpubh.2021.654299/full">doi: 10.3389/fpubh.2021.654299</a>. <br>
+
+
+{{< fa circle-chevron-right >}} <b>Socio-demographic, not environmental, risk factors explain fine-scale spatial patterns of diarrhoeal disease in Ifanadiana, rural Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, MH Bonds, LF Cordier, JM Drake, F Ihantamalala, J Haruna, AC Miller, CC Murdock, M Randriamanambtsoa, EM Raza-Fanomezanjanahary, BR Razafinjato, AC Garchitorena. 2021. <i>Proceedings of the Royal Society B</i>. <a href="https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2020.2501">doi:10.1098/rspb.2020.2501</a>.<br>
+
+### 2020
+
+{{< fa circle-chevron-right >}} <b>Land cover affects microclimate and temperature suitability for arbovirus transmission in an urban landscape</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Wimberly M, JK Davis, <span style='color:#78C2AD'>MV Evans</span>, A Hess, PM Newberry, N Solano-Asamoah, and CC Murdock. 2020. <i>PLoS NTD</i>. <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0008614">doi:10.1080/16549716.2020.1816044</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Reconciling model predictions with low reported cases of COVID-19 in Sub-saharan Africa: Insights from Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, A Garchitorena, RJL Rakotonanahary, JM Drake, B Andriamihaja, E Rajaonarifara, CN Ngonghala, B Roche, MH Bonds, J Rakotonirina. 2020. <i>Global Health Action</i>. <a href="Evans MV, A Garchitorena, RJL Rakotonanahary, JM Drake, B Andriamihaja, E Rajaonarifara, CN Ngonghala, B Roche, MH Bonds, J Rakotonirina">doi:10.1080/16549716.2020.1816044</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Mosquito-virus interactions</b> <span style='color:#78C2AD'>{{< fa lock >}} No PDF Available</span><br/>
+Reitmayer CM, <span style='color:#78C2AD'>MV Evans</span>, KL Miazgowicz, PM Newberry, N Solano-Asamoah, B Tesla, and CC Murdock. 2020. <i>In: J. M. Drake, M. Strand, M. Bonsall (Eds.), Population Biology of Vector-Borne Diseases</i>. <a href="https://global.oup.com/academic/product/population-biology-of-vector-borne-diseases-9780198853244?cc=us&lang=en&#">Oxford University Press</a>. Book Chapter.<br>
+
+{{< fa circle-chevron-right >}} <b>Carry-over effects of the larval environment in mosquito-borne disease systems</b> [PDF](assets/pdfs/Evans2020_carry-over.pdf)<br/>
+<span style='color:#78C2AD'>Evans MV</span>, PM Newberry, CC Murdock. 2020. <i>In: J. M. Drake, M. Strand, M. Bonsall (Eds.), Population Biology of Vector-Borne Diseases</i>. <a href="https://global.oup.com/academic/product/population-biology-of-vector-borne-diseases-9780198853244?cc=us&lang=en&#">Oxford University Press</a>. Book Chapter.<br>
+
+### 2019
+
+{{< fa circle-chevron-right >}} <b>Microclimate and larval habitat density predict adult Aedes albopictus abundance in urban areas</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, CW Hintz, L Jones, J Shiau, N Solano, JM Drake, CC Murdock. 2019. <i>The American Journal of Tropical Medicine and Hygiene</i>. <a href="https://www.ajtmh.org/content/journals/10.4269/ajtmh.19-0220">doi:10.4269/ajtmh.19-0220</a>. <br>
+
+### 2018
+
+{{< fa circle-chevron-right >}} <b>Spatio-temporal spillover risk of yellow fever in Brazil</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Kaul RB\*, <span style='color:#78C2AD'>MV Evans\*</span>, CC Murdock, JM Drake. 2018. <i>Parasites & Vectors</i>. <a href="https://parasitesandvectors.biomedcentral.com/articles/10.1186/s13071-018-3063-6">doi:10.1186/s13071-018-3063-6.</a>. \*Contributed equally. <br>
+
+{{< fa circle-chevron-right >}} <b>Carry-over effects of urban larval environments on the transmission potential of dengue-2 virus</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, JC Shiau, N Solano, MA Brindley, JM Drake, CC Murdock. 2018. <i>Parasites & Vectors</i>. <a href="https://parasitesandvectors.biomedcentral.com/articles/10.1186/s13071-018-3013-3">doi:10.1186/s13071-018-3013-3</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Anticipating emerging mosquito-borne flaviviruses in the USA: What comes after Zika?</b> [PDF](assets/pdfs/EvansTrePar2018.pdf)<br/>
+<span style='color:#78C2AD'>Evans MV</span>, CC Murdock, JM Drake. 2018. <i>Trends in Parasitology</i>. <a href="https://doi.org/10.1016/j.pt.2018.02.010"> doi:10.1016/j.pt.2018.02.010</a>. <br>
+
+### 2017
+
+{{< fa circle-chevron-right >}} <b>Fine-scale variation in microclimate across an urban landscape shapes variation in mosquito population dynamics and the potential of Aedes albopictus to transmit arboviral disease</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Murdock CC, <span style='color:#78C2AD'>MV Evans</span>, TD McClanahan, KL Miazgowicz, B Tesla. 2017. <i>PLoS NTD</i>. <a href="https://doi.org/10.1371/journal.pntd.0005640"> doi:10.1371/journal.pntd.0005640</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Detecting the impact of temperature on transmission of Zika, dengue and chikungunya using mechanistic models</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Mordecai E, J Cohen, <span style='color:#78C2AD'>MV Evans</span>, P Gudapati, LR Johnson, CA Lipp, K Miazgowicz, CC Murdock, JR Rohr, SJ Ryan, V Savage, M Shocket, AS Ibarra, MB Thomas, DP Weikel. 2017. <i>PLoS NTD</i>. <a href="https://doi.org/10.1371/journal.pntd.0005568">doi:10.1371/journal.pntd.0005568</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Data-driven identification of potential Zika virus vectors</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, TA Dallas, BA Han, CC Murdock, JM Drake. 2017. <i>eLife</i>. <a href="http://dx.doi.org/10.7554/eLife.22053">doi:10.7554/eLife.22053</a>. <br>
