@@ -7,6 +7,9 @@ about:
     - icon: twitter
       text: Twitter
       href: https://twitter.com/mv_evans
+    - icon: mastodon
+      text: Mastodon
+      href: https://ecoevo.social/@mv_evans
     - icon: github
       text: Github
       href: https://github.com/mvevans89
@@ -27,3 +30,5 @@ I work with colleagues at [MIVEGEC](https://mivegec.fr/fr) at the Institut de Re
 For more information, use the tabs above to navigate to my [Rstats blog](blog.qmd), [academic publications](pubs.qmd), or [check out my CV](assets/MVEvansCV.pdf).
 
 This website was created using [Quarto](https://quarto.org).
+
+<!-- <a rel="me" href="https://ecoevo.social/@mv_evans"></a> -->
