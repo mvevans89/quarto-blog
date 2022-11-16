@@ -11,7 +11,7 @@ execute:
 ---
 
 
-![Photo by <a href="https://unsplash.com/@jonathanborba?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jonathan Borba</a> on <a href="https://unsplash.com/s/photos/fast-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](burger-header.jpg)
+![Photo by <a href="https://unsplash.com/@jonathanborba?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jonathan Borba</a> on <a href="https://unsplash.com/s/photos/fast-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](burger-header.jpg){fig-align="center" width=15cm}
   
 
 ```{r}
