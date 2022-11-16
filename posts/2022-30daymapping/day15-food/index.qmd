@@ -1,0 +1,211 @@
+---
+title: "Hardee's and Carl's Jr. Great Divide"
+description: "Day 15 of the #30DayMapChallenge - Food and Drink"
+author: "Michelle Evans"
+date: "2022-11-15"
+draft: false
+image: burger-header.jpg
+execute:
+  warning: false
+  message: false
+---
+
+
+![Photo by <a href="https://unsplash.com/@jonathanborba?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jonathan Borba</a> on <a href="https://unsplash.com/s/photos/fast-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](burger-header.jpg)
+  
+
+```{r}
+#| include: false
+
+library(sf)
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(patchwork)
+
+library(ggtext)
+library(showtext)
+
+#add fonts
+font_add('fa-brands', here::here('fonts/fa-brands-400.ttf'))
+showtext_auto()
+
+library(dplyr)
+```
+
+The topic for day 15 was food. If you've ever driven across the country, you may have had the Mandela-effect like feeling when you come across a Hardee's or Carl's Jr. They seem almost exactly the same: similar fonts, same smiling little star, and identical menus. But they are conceivably different restaurants? [Long story short](https://www.mentalfloss.com/article/63291/whats-difference-between-hardees-and-carls-jr), they merged nearly twenty years ago, and kept the franchise names to not disrupt the markets and fan bases on their respective coasts. Essentially, it's the second-most famous East vs. West coast beef, and I wanted to make a map of the dividing line based on distance to the nearest Hardee's or Carl's Jr.
+
+I used data from [fastfoodmaps.com](http://www.fastfoodmaps.com/) to get the location of all the restaurants, and then created rasters of Euclidean distance to each restaurant.
+
+```{r}
+food.locs <- read.csv("fastfoodmaps_locations_2007.csv", header = F) |>
+  #limit to just Hardee and Carls Jr
+  filter(V2 %in% c("c", "h")) |>
+  #limit to just continentental US
+  filter(!(V5 %in% c("HI", "AK"))) |>
+  select(V2, V8, V9) 
+
+food.sf <- st_as_sf(food.locs, coords = c("V9", "V8"), crs = 4326)
+
+#create raster template
+usa.poly <- st_as_sf(maps::map("usa", fill=TRUE, plot =FALSE)) |>
+  filter(ID == "main")
+usa.bbox <- st_bbox(usa.poly)
+
+#a finer resolution will make distance calculations take longer
+us.rast <- rast(crs = "epsg:4326", resolution = 0.33333, 
+                xmin = usa.bbox$xmin, xmax = usa.bbox$xmax, 
+                     ymin = usa.bbox$ymin, ymax = usa.bbox$ymax)
+values(us.rast) <- 1
+
+dist.h.base <- distance(x = us.rast, y = vect(filter(food.sf, V2 == "h")))
+dist.c.base <- distance(x = us.rast, y = vect(filter(food.sf, V2 == "c")))
+dist.h.base <- dist.h.base/1000
+dist.c.base <- dist.c.base/1000
+
+p1 <- ggplot() +
+  geom_spatraster(data = mask(dist.h.base, vect(usa.poly))) +
+  ggtitle("Distance to Hardee's") +
+  scale_fill_viridis_c(na.value = NA) +
+  theme_void()
+p2 <- ggplot() +
+  geom_spatraster(data = mask(dist.c.base, vect(usa.poly))) +
+  ggtitle("Distance to Carl's Jr.") +
+  scale_fill_viridis_c(na.value = NA) +
+  theme_void()
+
+p1 + p2
+```
+
+I then wanted mask out those pixels where the other restaurant was closer, essentially trying to create a raster for each side of the United States. I did this using some simple raster logic, where any pixels where the other restaurant was closer became `NA`.
+
+```{r}
+#create raster to identify which is closest
+h.closer <- dist.h.base<dist.c.base
+
+dist.c <- dist.c.base
+dist.h <- dist.h.base
+dist.c[h.closer] <- NA
+dist.h[!h.closer] <- NA
+#mask so it is just US outline
+dist.c.mask <- mask(dist.c, vect(usa.poly))
+dist.h.mask <- mask(dist.h, vect(usa.poly))
+
+p1 <- ggplot() +
+  geom_spatraster(data = dist.h.mask) +
+  ggtitle("Distance to Hardee's") +
+  scale_fill_viridis_c(na.value = NA) +
+  theme_void()
+
+p2 <- ggplot() +
+  geom_spatraster(data = dist.c.mask) +
+  ggtitle("Distance to Carl's Jr.") +
+  scale_fill_viridis_c(na.value = NA) +
+  theme_void()
+
+p1 +p2
+```
+
+The last bit of spatial data creation I did was the creation of the dividing line between the two rasters. There are many ways to do this, but these are the steps I followed:
+
+- created a polygon that represented the outline of all non-`NA` values in each raster using `as.polygons`
+- created a buffer around that polygon via `st_buffer`
+- identified the overlap between the two buffered polygons using `st_intersection`
+
+```{r}
+carl.poly.r <- dist.c.mask
+carl.poly.r[!is.na(carl.poly.r)] <- 1
+carl.poly <- as.polygons(carl.poly.r, dissolve = T) %>%
+  st_as_sf() %>%
+  st_buffer(dist = 20000)
+
+hard.poly.r <- dist.h.mask
+hard.poly.r[!is.na(hard.poly.r)] <- 1
+hard.poly <- as.polygons(hard.poly.r, dissolve = T) %>%
+  st_as_sf() %>%
+  st_buffer(dist = 20000)
+
+#find commonality to get dividing line
+boundary <- st_intersection(hard.poly, carl.poly)
+```
+
+Finally, it was just plotting it all:
+
+```{r}
+#define some things outside of the plot call for easier readability
+bg.col <- "gray10"
+fact.caption <- "Hardee's and Carl's Jr. merged in 1997. The menu is now the same, but which one you eat at depends on where you live."
+caption.lab <- paste0("#30DayMapChallenge ",
+                      "<b> Source: </b>fastfoodmaps.com &nbsp; &nbsp;  | &nbsp;  &nbsp; ",
+                      "<span style='font-family:fa-brands;'>&#xf113;</span> mvevans89")
+```
+
+
+```{r}
+#| eval: false
+
+ggplot() +
+    geom_spatraster(data = dist.h.mask) +
+  scale_fill_distiller(palette = "Blues", na.value = NA, name = "Distance to Hardee's") +
+    ggnewscale::new_scale_fill() +
+  geom_spatraster(data = dist.c.mask) +
+  scale_fill_distiller(palette = "Reds", na.value = NA, name = "Distance to Carl's Jr.")+
+  geom_sf(data = boundary, color = "black", fill = "white") +
+  labs(title = "A Nation Divided",
+       caption = caption.lab) +
+  annotate(geom = "text", x = -120, y = 27, label = stringr::str_wrap(fact.caption, 35),
+           col = "white", size = 4) +
+  geom_richtext(aes(label = "<img src='carls.png' width='80'/>", x = -110, y = 35), 
+                fill = NA, color = NA) +
+    geom_richtext(aes(label = "<img src='hardees.png' width='80'/>", x = -85, y = 38), 
+                fill = NA, color = NA) +
+  theme_void() +
+  theme(legend.position = "bottom",
+        panel.background = element_rect(fill = bg.col, color = NA),
+        plot.background = element_rect(fill = bg.col, color = NA),
+        legend.background = element_rect(fill = bg.col, color = NA),
+        legend.text = element_text(color = "white"),
+        legend.title = element_text(color = "white"),
+        plot.caption  = element_markdown(family = "sans", hjust = 0.5, size = 9,
+                                         color = "gray80"),
+        plot.title = element_text(color = "white", size = 24, hjust = 0.5),
+        legend.direction = "horizontal")
+```
+
+
+```{r}
+#| eval: true
+#| echo: false
+#| output: false
+
+png("fastfoodnation.png", res = 200, width = 1300, height = 1000, bg = bg.col)
+ggplot() +
+    geom_spatraster(data = dist.h.mask) +
+  scale_fill_distiller(palette = "Blues", na.value = NA, name = "Distance to Hardee's") +
+    ggnewscale::new_scale_fill() +
+  geom_spatraster(data = dist.c.mask) +
+  scale_fill_distiller(palette = "Reds", na.value = NA, name = "Distance to Carl's Jr.")+
+  geom_sf(data = boundary, color = "black", fill = "white") +
+  labs(title = "A Nation Divided",
+       caption = caption.lab) +
+  annotate(geom = "text", x = -120, y = 27, label = stringr::str_wrap(fact.caption, 35),
+           col = "white", size = 4) +
+  geom_richtext(aes(label = "<img src='carls.png' width='80'/>", x = -110, y = 35), 
+                fill = NA, color = NA) +
+    geom_richtext(aes(label = "<img src='hardees.png' width='80'/>", x = -85, y = 38), 
+                fill = NA, color = NA) +
+  theme_void() +
+  theme(legend.position = "bottom",
+        panel.background = element_rect(fill = bg.col, color = NA),
+        plot.background = element_rect(fill = bg.col, color = NA),
+        legend.background = element_rect(fill = bg.col, color = NA),
+        legend.text = element_text(color = "white"),
+        legend.title = element_text(color = "white"),
+        plot.caption  = element_markdown(family = "sans", hjust = 0.5, size = 9,
+                                         color = "gray80"),
+        plot.title = element_text(color = "white", size = 24, hjust = 0.5),
+        legend.direction = "horizontal")
+dev.off()
+```
+
+![](fastfoodnation.png){fig-align="center" width=20cm}
