@@ -2,6 +2,9 @@
   "listingMap": {
     "blog.qmd": [
       "posts"
+    ],
+    "series-30daymap2022.qmd": [
+      "posts/2022-30daymapping"
     ]
   }
 }

@@ -1,7 +1,7 @@
 ---
-title: "Dithering Data: A Blog"
+title: "Series: #30DayMappingChallenge 2022"
 listing:
-  contents: posts
+  contents: posts/2022-30daymapping
   sort: "date desc"
   type: default
   categories: false
@@ -13,12 +13,4 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
-
-# Series
-
-#### [30 Day Mapping Challenge 2022](series-30daymap2022.html)
-This series contains the code to make maps from the #30DayMappingChallenge in 2022.
-
-# Individual Posts
-
 

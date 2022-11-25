@@ -1,6 +1,6 @@
 ---
 title: "Michelle Evans, PhD"
-image: michelle-avatar.png
+image: michelle-headshot.png
 about:
   template: jolla
   links:
