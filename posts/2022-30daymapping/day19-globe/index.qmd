@@ -1,0 +1,163 @@
+---
+title: "Map projections in ggplot"
+description: "Day 19 of the #30DayMapChallenge - Globe"
+author: "Michelle Evans"
+date: "2023-01-17"
+draft: false
+image: ww-inverse2.png
+execute:
+  warning: false
+  message: false
+---
+
+
+![You wanna change... the map? Source: The West Wing](ww-inverse2.png)
+
+```{r}
+#| include: false
+
+library(sf)
+library(rnaturalearth)
+
+library(ggplot2)
+
+
+library(ggtext)
+library(showtext)
+
+#add fonts
+font_add('fa-brands', here::here('fonts/fa-brands-400.ttf'))
+font_add('jeopardy', here::here('fonts/ITC Korinna Std Bold.otf'))
+showtext_auto()
+
+library(dplyr)
+```
+
+As anyone familiar with Aaron Sorkin's West Wing knows, [map projections are biased](https://www.youtube.com/watch?v=vVX-PrBRtTY). In one episode of the West Wing, the fictitious Organization of Cartographers for Social Equality make the point that the commonly used Mercator map projection distorts the sizes of continents in favor of Europe and North America, essentially making the southern hemisphere continents seem much smaller than they actually are and presenting a eurocentric view of the world. They propose an alternate map projection: the Gall-Peters projection, which has an astonishingly detailed [wikipedia page](https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection).
+
+# Changing Map Projections in R
+
+Understanding and using different map projections is an important part of correct GIS analyses and visualization and is remarkably straight-forward in the `sf`+`ggplot` universe. Below are two ways to transform map projections in R:
+
+```{r}
+#get map of countries via natural earth
+world.poly <- ne_countries(returnclass = "sf")
+
+#first method: transform via sf
+world.poly %>%
+  st_transform(crs = 4326) %>%
+  ggplot() +
+  geom_sf()+
+  theme_minimal() +
+  ggtitle("Change projection via st_transform")
+
+#second method: change crs of plot
+ggplot() +
+  geom_sf(data = world.poly) +
+  theme_minimal() +
+  coord_sf(crs = 4326) +
+  ggtitle("Change projection within ggplot using coord_sf")
+```
+
+They result in identical maps and which you use is up to you. Using the within ggplot `coord_sf` method is similar to projecting 'on the fly' in some GIS software. The projection is just being updated for the visualization but the underlying data projection remains unchanged.
+
+## Providing a coordinate reference system (CRS)
+
+Either method takes one of the following arguments for the coordinate reference system (CRS):
+
+- object of class `crs` created via the `st_crs` function. This might be used if you wanted to match the CRS of another dataset, just calling `st_crs(second_data)` as the argument.
+
+- input string that `st_crs` can read. The format of this can vary widely. I most often reference a CRS using its EPSG number, as above. There is a database of all EPSG codes at [epsg.io](https://epsg.io/) and you can even look up the most commonly used CRS for each country. This can then be provided in numeric (e.g. 3857) or a string format (e.g. "EPSG:3857"). Some common EPSG codes are:
+
+| **EPSG** | **CRS Name**     |
+|----------|------------------|
+| 4326     | WGS 84           |
+| 3857     | Web Mercator     |
+| 4269     | NAD83            |
+| 6842     | MODIS Sinusoidal |
+
+Sometimes there may not be a code for a certain CRS you want to use, or the code may not exist in the GDAL EPSG support files. Then you can provide a longer [proj-string](https://proj.org/usage/quickstart.html) with specific information about things like the datum, ellipsoid, projection, true scales, etc. These are referred to as `PROJ.4` strings in the EPSG database. For example, the full proj-string for WGS 84 (EPSG  4326) is `+proj=longlat +datum=WGS84 +no_defs +type=crs`.
+
+# Making the West Wing Map
+
+To make a global map in the Gall-Peters projection, we first need to find the EPSG code or proj-string. There is no EPSG code for this projection, but the custom CRS is described in this [SO post](https://gis.stackexchange.com/questions/194295/getting-borders-as-svg-using-peters-projection). Then we can save this and provide it to `coord_sf`:
+
+```{r}
+gall.peters.proj <- "+proj=cea +lon_0=0 +x_0=0 +y_0=0 +lat_ts=45 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+
+ggplot() +
+  geom_sf(data = world.poly) +
+  theme_minimal() +
+  coord_sf(crs = gall.peters.proj) +
+  ggtitle("Gall-Peters Projection")
+```
+
+This works, but let's see if we can't make it more closely match the West Wing map. For that, we need to drop Antarctica and change some of the color palettes and fonts.
+
+```{r}
+gp.poly <- world.poly %>%
+  filter(continent != "Antarctica") %>%
+  #add colors
+  mutate(poly_col = case_when(
+    name_sort == "India" ~ "#284D47",
+    name_sort == "Saudi Arabia" ~ "#A15833",
+    name_sort == "Yemen, Rep." ~ "#A15833",
+    name_sort == "Australia" ~ "#0E0805",
+    name_sort == "Russian Federation" ~ "#61121F",
+    name_sort == "United Arab Emirates" ~ "#61121F",
+    name_sort == "Oman" ~ "#61121F",
+    name_sort == "Canada" ~ "#232411",
+    name_sort == "United States of America" ~ "#B98C69",
+    name_sort == "Mexico" ~ "#B54F79",
+    name_sort == "New Zealand" ~ "gray50",
+    subregion == "Melanesia" ~ "gray50",
+    subregion == "Western Europe" ~"#491218",
+    subregion == "Northern Europe" ~"#491218",
+    subregion == "Central Asia" ~ "#61121F",
+    subregion == "Western Asia" ~ "#61121F",
+    subregion == "Southern Asia" ~ "#61121F",
+    continent == "Africa" ~ "#371013",
+    continent == "South America" ~ "#140D08",
+    subregion == "Central America" ~ "#140D08",
+    continent == "North America" ~ "#140D08",
+    continent == "Europe" ~ "#491218",
+    subregion == "Eastern Asia" ~ "#D4A14E",
+    subregion == "South-Eastern Asia" ~ "#D4A14E",
+    TRUE ~ "gray50"
+  )) %>%
+  st_transform(crs=gall.peters.proj)
+
+peters.plot <- ggplot() +
+  geom_sf(data = gp.poly, aes(fill = poly_col), color = "gray60", size = 0.2) +
+  scale_fill_identity() +
+  theme_minimal() +
+  annotate("richtext", x = 2e6, y = -6e6, label = "PETER'S PROJECTION MAP", 
+           fill = "#431613", color = "white", size = 14, family = "jeopardy") +
+  coord_sf(crs = gall.peters.proj, xlim = c(-14190000, 14190000), 
+           ylim = c(-7403000, 8929000)) +
+  #add plot annotation
+  # annotate("label", x = 0, y = -80, label = "Peter's Projection Map") +
+  theme(panel.background = element_rect(fill = "#D6C4B8", color = NA),
+        plot.background = element_rect(fill = "#D6C4B8"),
+        panel.grid = element_line(color = "gray20"),
+        axis.text = element_blank(),
+        axis.title = element_blank()) 
+  
+```
+
+```{r}
+#| include: false 
+
+png("peters-map.png", res = 300, height = 1800, width = 2800)
+peters.plot
+dev.off()
+```
+
+
+::: {layout-ncol=2}
+![Peter's Projection in R](peters-map.png)
+
+![Peter's Projection on West Wing](peters-ww2.png)
+:::
+
+Honestly, it is not too bad. Glad to see that R can reproduce the special effects of an early 2000's political drama.
