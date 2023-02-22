@@ -20,11 +20,18 @@ highlight-color:#78C2AD
   
 ```
 
+## 2023
+
+{{< fa circle-chevron-right >}} <b>The mismatch of narratives and local ecologies in the everyday governance of water access and mosquito control in an urbanizing community</b> <span style='color:#78C2AD'></span> [PDF](assets/pdfs/EvansJHAP2023.pdf)<br/>
+<span style='color:#78C2AD'>Evans MV</span>, S Bhatnagar, JM Drake, CC Murdock, JL Rice, S Mukherjee. 2023. <i>Health and Place</i>. <a href="https://www.sciencedirect.com/science/article/pii/S1353829223000266">doi:10.1016/j.healthplace.2023.102989</a>. <br>
 
 ### 2022
 
+{{< fa circle-chevron-right >}} <b>Geographic barriers to care persist at the community healthcare level: Evidence from rural Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>\*, T Andréambeloson\*, M Randriamihaja, F Ihantamalala, L Cordier, G Cowley, K Finnegan, F Hanitriniaina, AC Miller, LM Ralantomalala, A Randriamahasoa, B Razafinjato, E Razanahanitriniaina, R JL Rakotonanahary, IJ Andriamiandra, MH Bonds, A Garchitorena. 2022. <i>PLoS Global Public Health</i>. <a href="https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0001028">doi:10.1371/journal.pgph.0001028</a>. \*Contributed equally.<br>
+
 {{< fa circle-chevron-right >}} <b>A data-driven horizon scan of bacterial pathogens at the wildlife-livestock interface</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
-<span style='color:#78C2AD'>Evans MV</span>, J Drake. 2022. <i>EcoHealth</i>. <a href="https://link.springer.com/article/10.1007/s10393-022-01599-3">doi:10.1007/s10393-022-01599-3</a>. <br>
+<span style='color:#78C2AD'>Evans MV</span>, JM Drake. 2022. <i>EcoHealth</i>. <a href="https://link.springer.com/article/10.1007/s10393-022-01599-3">doi:10.1007/s10393-022-01599-3</a>. <br>
 
 {{< fa circle-chevron-right >}} <b>Prioritizing COVID-19 vaccination efforts and dose allocation within Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
 Rasambainarivo F, T Ramiadantsoa, A Raherinandrasana, S Randrianarisoa, BL Rice, <span style='color:#78C2AD'>MV Evans</span>, B Roche, FM Randriatsarafara, A Wesolowski, JC Metcalf. Prioritizing COVID-19 vaccination efforts and dose allocation within Madagascar. <i>BMC Public Health.</i> <a href="https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-022-13150-8">doi:10.1186/s12889-022-13150-8</a>. 
