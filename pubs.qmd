@@ -22,6 +22,9 @@ highlight-color:#78C2AD
 
 ## 2023
 
+{{< fa circle-chevron-right >}} <b>Morbidity and mortality burden of COVID-19 in rural Madagascar: results from a longitudinal cohort and nested seroprevalence study</b> <span style='color:#78C2AD'>{{< fa lock-keyhole >}}</span> [PDF](assets/pdfs/Garchitorena2023.pdf) <br/> 
+Garchitorena A, LT Rasoloharimanana, R JL Rakotonanahary, <span style='color:#78C2AD'>MV Evans</span>, AC Miller, KE Finnegan, LF Cordier, G Cowley, B Razafinjato, M Randriamanambintosa, S Andrianambinina, SK Popper, R Hotahiene, MH Bonds, M Schoenhals. 2023. <i>International Journal of Epidemiology</i>. <a href="https://doi.org/10.1093/ije/dyad135">doi:10.1093/ije/dyad135</a>. <br>
+
 {{< fa circle-chevron-right >}} <b>Socio-demographic variables can guide prioritized testing strategies for epidemic control in resource-limited contexts</b>  <span style='color:#78C2AD'></span>  [PDF](assets/pdfs/Evans2023_JID.pdf) <br/>
 <span style='color:#78C2AD'>Evans MV</span>, T Ramiadantsoa, K Kauffman, J Moody, CL Nunn, JY Rabezara, P Raharimalala, TK Randriamoria, V Soarimalala, G Titcomb, A Garchitorena, B Roche. 2023. <i>The Journal of Infectious Diseases</i>. <a href ="https://doi.org/10.1093/infdis/jiad076">doi: 10.1093/infdis/jiad076</a>.<br>
 
