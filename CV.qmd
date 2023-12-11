@@ -1,0 +1,7 @@
+---
+title: "Curriculum Vitae"
+page-layout: full
+title-block-banner: true
+---
+
+{{< pdf assets/MVEvansCV.pdf width=100% height=800 >}}

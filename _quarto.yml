@@ -10,6 +10,8 @@ website:
         href: blog.qmd
       - text: "Academic Pubs"
         href: pubs.qmd
+      - text: "CV"
+        href: CV.qmd
       - icon: github
         href: https://github.com/mvevans89
       - icon: twitter
