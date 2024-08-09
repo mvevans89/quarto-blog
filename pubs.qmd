@@ -20,7 +20,15 @@ highlight-color:#78C2AD
   
 ```
 
+## 2024
+
+{{< fa circle-chevron-right >}} <b>Heterogeneity in elimination efforts could increase the risk of resurgence of lymphatic filariasis in Madagascar.</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Rajaonarifara E, B Roche, CB Chesnais, H Rabenantoandro, <span style='color:#78C2AD'>MV Evans</span>, A Garchitorena. 2024. <i>Infection, Genetics, and Evolution</i>. <a href="https://doi.org/10.1016/j.meegid.2024.105589">doi:j.meegid.2024.105589</a>. <br>
+
 ## 2023
+
+{{< fa circle-chevron-right >}} <b>Applying a zero-corrected, gravity model estimator reduces bias due to heterogeneity in healthcare utilization in community-scale, passive surveillance datasets of endemic diseases</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, FA Ihantamalala, M Randriamihaja, AT Aina, MH Bonds, KE Finnegan, RJL Rakotonanahary, M Raza-Fanomezanjanahary, B Razafinjato, O Raobela, SH Raholiarimanana, TH Randrianavalona, A Garchitorena. 2023. <i>Scientific Reports</i>. <a href="https://doi.org/10.1038/s41598-023-48390-0">doi: 10.1038/s41598-023-48390-0</a>. <br>
 
 {{< fa circle-chevron-right >}} <b>Morbidity and mortality burden of COVID-19 in rural Madagascar: results from a longitudinal cohort and nested seroprevalence study</b> <span style='color:#78C2AD'>{{< fa lock-keyhole >}}</span> [PDF](assets/pdfs/Garchitorena2023.pdf) <br/> 
 Garchitorena A, LT Rasoloharimanana, R JL Rakotonanahary, <span style='color:#78C2AD'>MV Evans</span>, AC Miller, KE Finnegan, LF Cordier, G Cowley, B Razafinjato, M Randriamanambintosa, S Andrianambinina, SK Popper, R Hotahiene, MH Bonds, M Schoenhals. 2023. <i>International Journal of Epidemiology</i>. <a href="https://doi.org/10.1093/ije/dyad135">doi:10.1093/ije/dyad135</a>. <br>

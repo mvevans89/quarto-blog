@@ -1,163 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ditheringdata.netlify.app/blog.html</loc>
-    <lastmod>2022-11-04T21:19:41.037Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/index.html</loc>
-    <lastmod>2022-11-04T21:18:59.426Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2022-02_leading-zeros/index.html</loc>
-    <lastmod>2022-10-31T21:04:09.216Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2018-06_ggplot-pipe/index.html</loc>
-    <lastmod>2022-10-31T21:05:24.741Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2021-02_dummy-variables/index.html</loc>
-    <lastmod>2022-10-31T21:07:21.727Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2021-02_apply-row/index.html</loc>
-    <lastmod>2022-10-31T17:48:29.186Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2020-02_extract-polygons/index.html</loc>
-    <lastmod>2022-10-31T17:48:29.934Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2020-02_rolling-functions/index.html</loc>
-    <lastmod>2022-10-31T17:48:30.694Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2021-02_geom-labels/index.html</loc>
-    <lastmod>2022-10-31T21:05:24.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2019-12_package-wrapped/index.html</loc>
-    <lastmod>2022-10-31T21:07:55.567Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2022-30daymapping/day1-points/index.html</loc>
-    <lastmod>2022-11-01T20:00:50.450Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2022-30daymapping/day2-lines/index.html</loc>
-    <lastmod>2022-11-01T20:03:04.087Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2022-30daymapping/day3-polygons/index.html</loc>
-    <lastmod>2022-11-03T20:51:20.972Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2022-30daymapping/day4-green/index.html</loc>
-    <lastmod>2022-11-04T16:08:34.622Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/posts/2022-30daymapping/day5-ukraine/index.html</loc>
-    <lastmod>2022-11-04T19:10:22.041Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ditheringdata.netlify.app/pubs.html</loc>
-    <lastmod>2022-11-04T21:20:00.514Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/index.html</loc>
-    <lastmod>2023-12-11T14:25:13.511Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/pubs.html</loc>
-    <lastmod>2023-12-11T14:24:42.134Z</lastmod>
-  </url>
-  <url>
     <loc>https://mvevans.netlify.app/blog.html</loc>
-    <lastmod>2023-12-11T14:24:44.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day5-ukraine/index.html</loc>
-    <lastmod>2022-11-05T19:13:31.295Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day3-polygons/index.html</loc>
-    <lastmod>2022-11-05T19:13:41.526Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day4-green/index.html</loc>
-    <lastmod>2022-11-05T19:13:46.053Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2021-02_dummy-variables/index.html</loc>
-    <lastmod>2022-11-05T19:13:49.767Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2018-06_ggplot-pipe/index.html</loc>
-    <lastmod>2022-11-05T19:14:53.726Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2019-12_package-wrapped/index.html</loc>
-    <lastmod>2022-11-05T19:14:57.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2020-02_rolling-functions/index.html</loc>
-    <lastmod>2022-11-05T19:15:01.091Z</lastmod>
+    <lastmod>2022-11-25T08:41:52.000Z</lastmod>
   </url>
   <url>
     <loc>https://mvevans.netlify.app/posts/2020-02_extract-polygons/index.html</loc>
-    <lastmod>2022-11-05T19:15:04.470Z</lastmod>
+    <lastmod>2022-10-31T17:13:14.000Z</lastmod>
   </url>
   <url>
-    <loc>https://mvevans.netlify.app/posts/2021-02_geom-labels/index.html</loc>
-    <lastmod>2022-11-05T19:15:07.604Z</lastmod>
+    <loc>https://mvevans.netlify.app/posts/2018-06_ggplot-pipe/index.html</loc>
+    <lastmod>2022-10-31T21:02:58.000Z</lastmod>
   </url>
   <url>
-    <loc>https://mvevans.netlify.app/posts/2021-02_apply-row/index.html</loc>
-    <lastmod>2022-11-05T19:15:10.953Z</lastmod>
+    <loc>https://mvevans.netlify.app/posts/2021-02_dummy-variables/index.html</loc>
+    <lastmod>2022-10-31T21:06:05.000Z</lastmod>
   </url>
   <url>
     <loc>https://mvevans.netlify.app/posts/2022-02_leading-zeros/index.html</loc>
-    <lastmod>2022-11-05T19:15:15.619Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day1-points/index.html</loc>
-    <lastmod>2022-11-05T19:15:18.691Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day2-lines/index.html</loc>
-    <lastmod>2022-11-05T19:15:21.557Z</lastmod>
+    <lastmod>2022-10-30T21:00:14.000Z</lastmod>
   </url>
   <url>
     <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day7-raster/index.html</loc>
-    <lastmod>2022-11-08T21:43:32.196Z</lastmod>
+    <lastmod>2022-11-06T11:44:45.000Z</lastmod>
   </url>
   <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day8-osm/index.html</loc>
-    <lastmod>2022-11-08T22:00:28.729Z</lastmod>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day5-ukraine/index.html</loc>
+    <lastmod>2022-11-04T19:09:59.000Z</lastmod>
   </url>
   <url>
     <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day09-space/index.html</loc>
-    <lastmod>2023-03-24T12:40:47.599Z</lastmod>
+    <lastmod>2022-11-09T22:30:57.000Z</lastmod>
   </url>
   <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day15-food/index.html</loc>
-    <lastmod>2022-11-16T17:43:41.532Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day16-minimal/index.html</loc>
-    <lastmod>2022-11-25T08:40:46.895Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mvevans.netlify.app/series-30daymap2022.html</loc>
-    <lastmod>2023-01-17T23:05:23.065Z</lastmod>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day1-points/index.html</loc>
+    <lastmod>2022-11-01T20:00:25.000Z</lastmod>
   </url>
   <url>
     <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day19-globe/index.html</loc>
-    <lastmod>2023-01-17T23:05:21.589Z</lastmod>
+    <lastmod>2023-01-17T23:05:15.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2021-02_geom-labels/index.html</loc>
+    <lastmod>2022-10-31T21:05:10.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/series-30daymap2022.html</loc>
+    <lastmod>2022-11-25T08:33:26.000Z</lastmod>
   </url>
   <url>
     <loc>https://mvevans.netlify.app/CV.html</loc>
-    <lastmod>2023-12-11T14:25:20.483Z</lastmod>
+    <lastmod>2023-12-11T14:24:16.614Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/index.html</loc>
+    <lastmod>2024-08-09T10:51:38.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day15-food/index.html</loc>
+    <lastmod>2022-11-16T17:42:46.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day16-minimal/index.html</loc>
+    <lastmod>2022-11-16T19:34:12.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day8-osm/index.html</loc>
+    <lastmod>2022-11-08T22:00:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day4-green/index.html</loc>
+    <lastmod>2022-11-04T16:08:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day3-polygons/index.html</loc>
+    <lastmod>2022-11-02T19:28:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2022-30daymapping/day2-lines/index.html</loc>
+    <lastmod>2022-11-01T20:02:40.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2019-12_package-wrapped/index.html</loc>
+    <lastmod>2022-10-30T19:57:53.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2021-02_apply-row/index.html</loc>
+    <lastmod>2022-10-30T20:49:51.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/posts/2020-02_rolling-functions/index.html</loc>
+    <lastmod>2022-10-31T17:06:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mvevans.netlify.app/pubs.html</loc>
+    <lastmod>2024-08-09T10:47:55.763Z</lastmod>
   </url>
 </urlset>
