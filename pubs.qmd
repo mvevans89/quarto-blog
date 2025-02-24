@@ -20,9 +20,17 @@ highlight-color:#78C2AD
   
 ```
 
+## 2025
+
+{{< fa circle-chevron-right >}} <b>Increasing the resolution of malaria early warning systems for use by local health actors</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, FA Ihantamalala, M Randriamihaja, V Herbreteau, C Révillion, T Catry, E Delaitre, MH Bonds, B Roche, E Mitsinjoniala, FA Ralaivavikoa, B Razafinjato, O Raobela, and A Garchitorena. 2025. <i>Malaria Journal</i>. <a href="https://doi.org/10.1186/s12936-025-05266-0">doi:10.1186/s12936-025-05266-0</a>. <br>
+
 ## 2024
 
-{{< fa circle-chevron-right >}} <b>Heterogeneity in elimination efforts could increase the risk of resurgence of lymphatic filariasis in Madagascar.</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+{{< fa circle-chevron-right >}} <b>Combining OpenStreetMap mapping and route optimization algorithms to inform the delivery of community health interventions at the last mile</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Randriamihaja, M, FAIhantamalala, FH Rafenoarimalala, KE Finnegan, L Rakotonirina, B Razafinjato, MH. Bonds, <span style='color:#78C2AD'>MV Evans</span>, A Garchitorena. 2024. <i>PLOS Digital Health</i>. <a href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000621">doi:10.1371/journal.pdig.0000621</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Heterogeneity in elimination efforts could increase the risk of resurgence of lymphatic filariasis in Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
 Rajaonarifara E, B Roche, CB Chesnais, H Rabenantoandro, <span style='color:#78C2AD'>MV Evans</span>, A Garchitorena. 2024. <i>Infection, Genetics, and Evolution</i>. <a href="https://doi.org/10.1016/j.meegid.2024.105589">doi:j.meegid.2024.105589</a>. <br>
 
 ## 2023

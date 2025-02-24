@@ -14,8 +14,8 @@ website:
         href: CV.qmd
       - icon: github
         href: https://github.com/mvevans89
-      - icon: twitter
-        href: https://twitter.com/mv_evans
+      - text: "{{< fa brands bluesky >}}"
+        href: https://bsky.app/profile/mv-evans.bsky.social
 format:
   html:
     theme: minty

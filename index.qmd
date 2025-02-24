@@ -4,14 +4,13 @@ image: headshot-mada-square.png
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/mv_evans
+    - text: "{{< fa brands bluesky >}} bluesky"
+      href: https://bsky.app/profile/mv-evans.bsky.social
     - icon: mastodon
-      text: Mastodon
+      text: mastodon
       href: https://ecoevo.social/@mv_evans
     - icon: github
-      text: Github
+      text: github
       href: https://github.com/mvevans89
     - icon: book-half
       text: gScholar
