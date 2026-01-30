@@ -22,6 +22,15 @@ highlight-color:#78C2AD
 
 ## 2025
 
+{{< fa circle-chevron-right >}} <b>Monitoring individual rice field flooding dynamics over a large scale to improve mosquito surveillance and control</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Randriamihaja M, TK Randrianjatovo, <span style='color:#78C2AD'>MV Evans</span>, FA Ihantamalala, V Herbreteau, C Révillion, E Delaitre, T Catry, A Garchitorena. 2025. <i>Malaria Journal</i>. <a href="https://doi.org/10.1186/s12936-025-05344-3">doi:10.1186/s12936-025-05344-3</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Changes in child mortality and population health following 10 years of health systems strengthening in rural Madagascar: A longitudinal cohort study</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+Garchitorena A, AC Miller, HL Razanadranaivo, L Rakotonirina, SA Barriault, B Razafinjato, JA Kotchofa, F Rafenoarimalala, RJL Rakotonanahary, FA Ihantamalala, <span style='color:#78C2AD'MV Evans</span>, AT Tolojananahary, V Ramanandraitsiory, A Tsitinomen'nyiaina, FA Ralaivavikoa, EM Raza-Fanomezanjanahary, M Randriamanambintosa, S Andrianambinina, LL Yasmine, MB Murray, ML Rich, LF Cordier, KE Finnegan, MH Bonds, ZA Randriamanantany. 2025. <i>PLoS Medicine</i>. <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004549">doi:10.1371/journal.pmed.1004549</a>. <br>
+
+{{< fa circle-chevron-right >}} <b>Designing and evaluating a health system resilient to extreme weather events in rural Madagascar</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
+<span style='color:#78C2AD'>Evans MV</span>, E Rajaonarifara, A Garchitorena, FA Ralaivavikoa, PE Rahajatiana, KE Finnegan, L Cordier, B Razafinjato, TM Randranjatovo, C Révillion, MJ Mbimbisoa, MH Bonds. 2025. <i>Annals of Global Health</i>. <a href="https://annalsofglobalhealth.org/articles/10.5334/aogh.4759">doi:10.5334/aogh.4759</a>. <br>
+
 {{< fa circle-chevron-right >}} <b>Increasing the resolution of malaria early warning systems for use by local health actors</b> <span style='color:#78C2AD'>{{< fa unlock-keyhole >}}</span><br/>
 <span style='color:#78C2AD'>Evans MV</span>, FA Ihantamalala, M Randriamihaja, V Herbreteau, C Révillion, T Catry, E Delaitre, MH Bonds, B Roche, E Mitsinjoniala, FA Ralaivavikoa, B Razafinjato, O Raobela, and A Garchitorena. 2025. <i>Malaria Journal</i>. <a href="https://doi.org/10.1186/s12936-025-05266-0">doi:10.1186/s12936-025-05266-0</a>. <br>
 
